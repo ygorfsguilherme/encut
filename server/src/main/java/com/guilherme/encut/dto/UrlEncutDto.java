@@ -1,4 +1,4 @@
-package com.guilherme.encut;
+package com.guilherme.encut.dto;
 
 public class UrlEncutDto {
     private final String urlPath;

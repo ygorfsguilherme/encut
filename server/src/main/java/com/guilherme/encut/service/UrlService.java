@@ -1,11 +1,12 @@
 package com.guilherme.encut.service;
 
-import com.guilherme.encut.UrlEncutDto;
+import com.guilherme.encut.dto.UrlEncutDto;
 import com.guilherme.encut.model.UrlEncut;
 import com.guilherme.encut.repository.UrlEncutRepository;
-import com.guilherme.encut.utils.RandomGeneratedPathUrl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UrlService {
@@ -13,14 +14,17 @@ public class UrlService {
     UrlEncutRepository urlEncutRepository;
 
     public UrlEncut save(UrlEncutDto urlEncutDto){
-        UrlEncut urlEncut = new UrlEncut(urlEncutDto);
+        Optional<UrlEncut> PathUrlIsExist = this.urlEncutRepository.findByUrlPath(urlEncutDto.getUrlPath());
 
-        this.urlEncutRepository.save(urlEncut);
+        if (PathUrlIsExist.isEmpty()){
+            UrlEncut urlEncut = new UrlEncut(urlEncutDto);
+            this.urlEncutRepository.save(urlEncut);
+            return urlEncut;
+        }
 
-        return urlEncut;
+        throw new RuntimeException("Path is exist");
     }
-
-    public UrlEncut findByUrlPath(String path){
+    public Optional<UrlEncut> findByUrlPath(String path){
         return this.urlEncutRepository.findByUrlPath(path);
     }
 

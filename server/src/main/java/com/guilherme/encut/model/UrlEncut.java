@@ -1,6 +1,6 @@
 package com.guilherme.encut.model;
 
-import com.guilherme.encut.UrlEncutDto;
+import com.guilherme.encut.dto.UrlEncutDto;
 import com.guilherme.encut.utils.RandomGeneratedPathUrl;
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -10,10 +10,6 @@ import org.jetbrains.annotations.NotNull;
 @Entity(name = "url_encut")
 public class UrlEncut {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    @JdbcTypeCode(SqlTypes.BIGINT)
-    private Long id;
     private String urlPath;
     private String urlOrigin;
 
@@ -23,10 +19,6 @@ public class UrlEncut {
     public UrlEncut(UrlEncutDto urlEncutDto) {
         UrlPathIsEmpty(urlEncutDto.getUrlPath());
         UrlHTTPIsExist(urlEncutDto.getUrlOrigin());
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getUrlPath() {
