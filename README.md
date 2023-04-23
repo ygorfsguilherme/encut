@@ -1,3 +1,11 @@
+<div align="center">
+   <img src="https://user-images.githubusercontent.com/100237670/210073579-42b5a77e-8129-4396-b380-4203c0517dba.png" />
+</div>
+
+<p align="center">
+   <img src="http://img.shields.io/static/v1?label=license&message=MIT&color=yellow&style=for-the-badge" #vitrinedev/>
+   <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=greeb&style=for-the-badge" #vitrinedev/>
+</p>
 
 ## <img src="https://cdn-icons-png.flaticon.com/512/3534/3534033.png" style="widht:30px; height:30px;" /> Descrição
 
